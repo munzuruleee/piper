@@ -108,4 +108,4 @@ python -m piper_train \
 
 python3 -m piper.train.export_onnx \
   --checkpoint 1555028.ckpt \
-  --output-file amymodel.onnx
+  --output-file /var/www/html/amymodels.onnx
