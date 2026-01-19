@@ -8,7 +8,8 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint
 
 from .vits.lightning import VitsModel
-
+import torch, pathlib
+torch.serialization.add_safe_globals([pathlib.PosixPath])
 _LOGGER = logging.getLogger(__package__)
 
 
