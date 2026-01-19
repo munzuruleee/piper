@@ -1,6 +1,7 @@
 
 cd /root
-git clone -q https://github.com/munzuruleee/piper
+#git clone -q https://github.com/munzuruleee/piper
+git clone -q https://github.com/rmcpantoja/piper
 cd /root/piper/src/python
 wget -q "https://raw.githubusercontent.com/coqui-ai/TTS/dev/TTS/bin/resample.py"
 pip install pip==24.0
@@ -84,12 +85,27 @@ python -m piper_train \
   --num_ckpt 2 \
   --save_last True \
   --log_every_n_steps 100 \
-  --max_epochs 3554200 \
+  --max_epochs 66790 \
   --precision 32 \
   --resume_from_checkpoint "/root/tts/epoch=6679-step=1554200.ckpt"
 
 
 
+python -m piper_train \
+  --dataset-dir "/root/piper/bangla_tts/" \
+  --accelerator gpu \
+  --devices 1 \
+  --batch-size 32 \
+  --validation-split 0.01 \
+  --num-test-examples 1 \
+  --quality medium \
+  --checkpoint-epochs 1 \
+  --log_every_n_steps 100 \
+  --max_epochs 66790 \
+  --precision 32 \
+  --resume_from_checkpoint "/root/tts/epoch=6679-step=1554200.ckpt"
 
 
-
+python3 -m piper.train.export_onnx \
+  --checkpoint 1555028.ckpt \
+  --output-file amymodel.onnx
