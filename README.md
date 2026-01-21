@@ -33,6 +33,29 @@ mkdir /root/tts/wav
 mkdir /root/audio_cache
 
 
+
+
+// for 2nd time********
+unzip "/root/tts/wav.zip" -d "/root/tts"
+mkdir /root/tts/wav
+mkdir /root/audio_cache
+
+mv /root/tts /root/tts1
+mv /root/dataset /root/dataset1
+mv /root/tts/wav /root/tts/wav1
+mv /root/audio_cache /root/audio_cache1
+mv /root/tts/wavs_resampled /root/tts/wavs_resampled1
+
+
+mkdir /root/tts
+mkdir /root/dataset
+mkdir /root/tts/wav
+mkdir /root/audio_cache
+unzip "/root/old_model/tts.zip"  -d "/root/tts"
+mv "/root/old_model/tts.zip" /root/tts/metadata.csv
+
+//*********************
+
 export OMP_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
 export MKL_NUM_THREADS=1
